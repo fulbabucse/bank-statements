@@ -1,0 +1,8 @@
+body {
+    background-image: url(../images/dollor.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken, luminosity;
+    background-color: rgba(0, 0, 0, 0.5);
+}

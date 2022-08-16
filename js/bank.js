@@ -3,6 +3,11 @@ document.getElementById("deposit-btn").addEventListener("click", function () {
     const inputDepositFieldString = inputDepositFieldElement.value;
     const inputDepositAmount = parseFloat(inputDepositFieldString);
 
+    if (isNaN(inputDepositAmount)) {
+        alert("Please provide a valid input!!")
+        return;
+    }
+
     const preDepositElement = document.getElementById("pre-deposit-amount");
     const preDepostAmount = preDepositElement.innerText;
     const preDepositString = parseFloat(preDepostAmount);
@@ -25,25 +30,36 @@ document.getElementById("withdraw-btn").addEventListener("click", function () {
     const withdrawFieldString = withdrawFieldElement.value;
     const WithdrowAmount = parseFloat(withdrawFieldString);
 
+    withdrawFieldElement.value = "";
+
+    if (isNaN(WithdrowAmount)) {
+        alert("Please provide a valid input!!")
+        return;
+    }
+
     const preWithdrowElement = document.getElementById("pre-withdrow-amount");
     const preWithdrowAmountString = preWithdrowElement.innerText;
     const preWithdrowAmount = parseFloat(preWithdrowAmountString);
 
-    const preTotalWithdrowAmount = preWithdrowAmount + WithdrowAmount;
-    preWithdrowElement.innerText = preTotalWithdrowAmount;
+
 
     const preTotalBalanceElement = document.getElementById("pre-total-balance");
     const preTotalBalanceString = preTotalBalanceElement.innerText;
     const preTotalBalnce = parseFloat(preTotalBalanceString);
 
+    if ((WithdrowAmount > preTotalBalnce)) {
+        alert("Insufficient balance")
+        return;
+    }
+
+    const preTotalWithdrowAmount = preWithdrowAmount + WithdrowAmount;
+    preWithdrowElement.innerText = preTotalWithdrowAmount;
+
     const currentTotalBalance = preTotalBalnce - WithdrowAmount;
 
     preTotalBalanceElement.innerText = currentTotalBalance;
 
-    withdrawFieldElement.value = "";
 
-    if (currentTotalBalance === 0) {
-        alert("insufficient balance")
-    }
+
 
 })

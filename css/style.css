@@ -3,6 +3,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100%;
     background-blend-mode: darken, luminosity;
     background-color: rgba(0, 0, 0, 0.5);
 }
